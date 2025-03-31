@@ -1,4 +1,3 @@
-// src/components/Footer.jsx
 import React, { useState } from 'react';
 import './Footer.css';
 
@@ -29,16 +28,16 @@ const Footer = () => {
             "Your satisfaction is our pleasure"
           </p>
           <div className="social-icons">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
               <img src={facebookIcon} alt="Facebook" className="social-icon" />
             </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
               <img src={instagramIcon} alt="Instagram" className="social-icon" />
             </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
               <img src={twitterIcon} alt="Twitter" className="social-icon" />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
               <img src={linkedinIcon} alt="LinkedIn" className="social-icon" />
             </a>
           </div>
@@ -88,6 +87,7 @@ const Footer = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
+              aria-label="Enter your email to subscribe"
             />
             <button type="submit">Send</button>
           </form>

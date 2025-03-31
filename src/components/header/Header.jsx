@@ -1,4 +1,3 @@
-// src/components/Header.js
 import React from 'react';
 import { Link } from 'react-router-dom'; // Sử dụng react-router-dom để điều hướng
 import './Header.css'; // File CSS để style header
@@ -43,13 +42,13 @@ const Header = () => {
 
         {/* Icons (Search, Cart, User) */}
         <div className="header-icons">
-          <Link to="/search">
+          <Link to="/search" aria-label="Search">
             <img src={searchIcon} alt="Search" className="icon" />
           </Link>
-          <Link to="/cart">
+          <Link to="/cart" aria-label="Cart">
             <img src={cartIcon} alt="Cart" className="icon" />
           </Link>
-          <Link to="/profile">
+          <Link to="/profile" aria-label="User Profile">
             <img src={userIcon} alt="User" className="icon" />
           </Link>
         </div>
