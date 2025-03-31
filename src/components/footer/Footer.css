@@ -1,0 +1,100 @@
+/* src/components/Footer.css */
+.footer {
+    background-color: #1a2526; /* Màu nền tối giống trong hình */
+    color: #fff; /* Màu chữ trắng */
+    padding: 40px 20px;
+    width: 100%;
+  }
+  
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px; /* Giới hạn chiều rộng tối đa */
+    margin: 0 auto;
+    flex-wrap: wrap; /* Cho phép xuống dòng trên màn hình nhỏ */
+  }
+  
+  .footer-column {
+    flex: 1;
+    min-width: 200px; /* Đảm bảo cột không bị quá nhỏ */
+    margin: 10px;
+  }
+  
+  .footer-column h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+  }
+  
+  .footer-column p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  
+  .social-icons {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+  }
+  
+  .social-icon {
+    width: 24px;
+    height: 24px;
+    transition: opacity 0.3s ease;
+  }
+  
+  .social-icon:hover {
+    opacity: 0.8;
+  }
+  
+  .footer-column ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-column ul li {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+  
+  .footer-column ul li span {
+    text-align: right;
+  }
+  
+  .subscribe-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .subscribe-form input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    flex: 1;
+  }
+  
+  .subscribe-form button {
+    padding: 8px 15px;
+    background-color: #2a3f40; /* Màu nút Send */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .subscribe-form button:hover {
+    background-color: #3b5a5b;
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 12px;
+    border-top: 1px solid #333;
+    padding-top: 10px;
+  }
