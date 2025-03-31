@@ -1,23 +1,31 @@
 /* src/components/Footer.css */
 .footer {
-    background-color: #1a2526; /* Màu nền tối giống trong hình */
-    color: #fff; /* Màu chữ trắng */
+    background-color: #1a2526; 
+    color: #fff; 
     padding: 40px 20px;
-    width: 100%;
+    width: 100vw; /* Sử dụng 100vw để ép footer full width theo viewport */
+    margin: 0; 
+    position: relative; 
+    left: 0; 
+    box-sizing: border-box; /* Đảm bảo padding không làm tăng kích thước */
   }
   
   .footer-container {
     display: flex;
-    justify-content: space-between;
-    max-width: 1200px; /* Giới hạn chiều rộng tối đa */
+    justify-content: space-evenly; /* Căn đều các cột */
+    max-width: 100%; 
     margin: 0 auto;
-    flex-wrap: wrap; /* Cho phép xuống dòng trên màn hình nhỏ */
+    flex-wrap: wrap; 
+    width: 100%; 
+    padding: 0 20px;
+    box-sizing: border-box;
   }
   
   .footer-column {
     flex: 1;
     min-width: 200px; /* Đảm bảo cột không bị quá nhỏ */
     margin: 10px;
+    max-width: 250px; /* Giới hạn chiều rộng tối đa của mỗi cột */
   }
   
   .footer-column h3 {
@@ -97,4 +105,31 @@
     font-size: 12px;
     border-top: 1px solid #333;
     padding-top: 10px;
+    width: 100%; /* Đảm bảo phần copyright full width */
+  }
+  
+  /* Responsive: Điều chỉnh khi màn hình nhỏ */
+  @media (max-width: 768px) {
+    .footer-container {
+      flex-direction: column; /* Xếp cột theo chiều dọc trên màn hình nhỏ */
+      align-items: center; /* Căn giữa các cột */
+    }
+  
+    .footer-column {
+      max-width: 100%; /* Cho phép cột chiếm toàn bộ chiều rộng */
+      text-align: center; /* Căn giữa nội dung */
+    }
+  
+    .footer-column ul li {
+      justify-content: center; /* Căn giữa các mục trong danh sách */
+      gap: 10px; /* Khoảng cách giữa ngày và giờ */
+    }
+  
+    .footer-column ul li span {
+      text-align: center; /* Căn giữa giờ */
+    }
+  
+    .subscribe-form {
+      justify-content: center; /* Căn giữa form */
+    }
   }
