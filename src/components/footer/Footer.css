@@ -35,19 +35,19 @@
   }
   
   .footer-column p {
-    font-size: 14px;
+    font-size: 15px;
     line-height: 1.6;
   }
   
   .social-icons {
     display: flex;
-    gap: 10px;
+    gap: 22px;
     margin-top: 15px;
   }
   
   .social-icon {
-    width: 24px;
-    height: 24px;
+    width: 25px;
+    height: 25px;
     transition: opacity 0.3s ease;
   }
   
@@ -102,12 +102,15 @@
   .footer-bottom {
     text-align: center;
     margin-top: 20px;
-    font-size: 12px;
+    font-size: 18px;
     border-top: 1px solid #333;
     padding-top: 10px;
     width: 100%; /* Đảm bảo phần copyright full width */
   }
-  
+  .footer-bottom p{
+    color: rgb(68, 180, 180);
+    }
+
   /* Responsive: Điều chỉnh khi màn hình nhỏ */
   @media (max-width: 768px) {
     .footer-container {

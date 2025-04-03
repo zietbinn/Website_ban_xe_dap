@@ -45,10 +45,10 @@ const Header = () => {
           <Link to="/search" aria-label="Search">
             <img src={searchIcon} alt="Search" className="icon" />
           </Link>
-          <Link to="/cart" aria-label="Cart">
+          <Link to="/products" aria-label="Products"> 
             <img src={cartIcon} alt="Cart" className="icon" />
           </Link>
-          <Link to="/profile" aria-label="User Profile">
+          <Link to="/signin" aria-label="Sign In">
             <img src={userIcon} alt="User" className="icon" />
           </Link>
         </div>

@@ -27,8 +27,8 @@
     list-style: none;
     display: flex;
     gap: 30px; /* Khoảng cách giữa các menu item */
-    margin: 0;
-    padding: 0;
+    margin: 35 ;
+    padding: 50;
   }
   
   .nav-menu ul li {
@@ -38,25 +38,25 @@
   .nav-menu ul li a {
     color: #fff; /* Màu chữ trắng */
     text-decoration: none;
-    font-size: 16px;
-    font-weight: 500;
+    font-size: 18px;
+    font-weight: 600;
     transition: color 0.3s ease;
   }
   
   .nav-menu ul li a:hover {
-    color: #ccc; /* Màu khi hover */
+    color: rgb(88, 85, 85); /* Màu khi hover */
   }
   
   .header-icons {
     display: flex;
-    gap: 15px; /* Khoảng cách giữa các icon */
+    gap: 27px; /* Khoảng cách giữa các icon */
   }
   
   .header-icons .icon {
-    height: 24px; /* Kích thước icon */
+    height: 25px; /* Kích thước icon */
     cursor: pointer;
   }
   
   .header-icons .icon:hover {
-    opacity: 0.8; /* Hiệu ứng khi hover icon */
+    opacity: 0.8; 
   }
