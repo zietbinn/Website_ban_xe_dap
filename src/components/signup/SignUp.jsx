@@ -1,20 +1,21 @@
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { auth, googleProvider, facebookProvider } from '../../firebase-config';
-import { signInWithPopup, signInWithEmailAndPassword } from 'firebase/auth';
+import { signInWithPopup, createUserWithEmailAndPassword } from 'firebase/auth';
 import { useAuth } from '../../context/AuthContext';
 import { toast } from 'react-toastify';
-import './SignIn.css';
+import './SignUp.css';
 
-const SignIn = () => {
+const SignUp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const { login } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
 
-  const handleSocialLogin = async (provider) => {
+  const handleSocialSignUp = async (provider) => {
     setIsLoading(true);
     try {
       const result = await signInWithPopup(auth, provider);
@@ -22,19 +23,25 @@ const SignIn = () => {
       toast.success(`Welcome, ${result.user.displayName || 'User'}!`);
       navigate(location.state?.from || '/', { replace: true });
     } catch (error) {
-      toast.error(`Login failed: ${error.message}`);
+      toast.error(`Sign up failed: ${error.message}`);
     } finally {
       setIsLoading(false);
     }
   };
 
-  const handleEmailLogin = async (e) => {
+  const handleEmailSignUp = async (e) => {
     e.preventDefault();
+    
+    if (password !== confirmPassword) {
+      toast.error('Passwords do not match');
+      return;
+    }
+
     setIsLoading(true);
     try {
-      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       login(userCredential.user);
-      toast.success('Login successful!');
+      toast.success('Account created successfully!');
       navigate(location.state?.from || '/', { replace: true });
     } catch (error) {
       toast.error(getErrorMessage(error.code));
@@ -45,20 +52,19 @@ const SignIn = () => {
 
   const getErrorMessage = (code) => {
     switch (code) {
+      case 'auth/email-already-in-use': return 'Email already registered';
       case 'auth/invalid-email': return 'Invalid email format';
-      case 'auth/user-not-found': return 'Email not registered';
-      case 'auth/wrong-password': return 'Incorrect password';
-      case 'auth/too-many-requests': return 'Too many attempts. Try again later';
-      default: return 'Login failed. Please try again';
+      case 'auth/weak-password': return 'Password should be at least 6 characters';
+      default: return 'Sign up failed. Please try again';
     }
   };
 
   return (
-    <div className="signin-container">
-      <div className="signin-card">
-        <h2 className="signin-title">Welcome Back</h2>
+    <div className="signup-container">
+      <div className="signup-card">
+        <h2 className="signup-title">Create Account</h2>
         
-        <form onSubmit={handleEmailLogin} className="signin-form">
+        <form onSubmit={handleEmailSignUp} className="signup-form">
           <div className="input-group">
             <label htmlFor="email">Email</label>
             <input
@@ -84,8 +90,21 @@ const SignIn = () => {
             />
           </div>
 
+          <div className="input-group">
+            <label htmlFor="confirmPassword">Confirm Password</label>
+            <input
+              id="confirmPassword"
+              type="password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              placeholder="••••••••"
+              required
+              minLength="6"
+            />
+          </div>
+
           <button type="submit" className="primary-btn" disabled={isLoading}>
-            {isLoading ? 'Signing In...' : 'Sign In'}
+            {isLoading ? 'Creating Account...' : 'Sign Up'}
           </button>
         </form>
 
@@ -96,7 +115,7 @@ const SignIn = () => {
         <div className="social-buttons">
           <button 
             className="social-btn google"
-            onClick={() => handleSocialLogin(googleProvider)}
+            onClick={() => handleSocialSignUp(googleProvider)}
             disabled={isLoading}
           >
             <i className="fab fa-google"></i> Continue with Google
@@ -104,22 +123,19 @@ const SignIn = () => {
 
           <button 
             className="social-btn facebook"
-            onClick={() => handleSocialLogin(facebookProvider)}
+            onClick={() => handleSocialSignUp(facebookProvider)}
             disabled={isLoading}
           >
             <i className="fab fa-facebook-f"></i> Continue with Facebook
           </button>
         </div>
 
-        <div className="signin-footer">
-          <p>Don't have an account? <span onClick={() => navigate('/signup')}>Sign Up</span></p>
-          <p className="forgot-password" onClick={() => navigate('/forgot-password')}>
-            Forgot password?
-          </p>
+        <div className="signup-footer">
+          <p>Already have an account? <span onClick={() => navigate('/signin')}>Sign In</span></p>
         </div>
       </div>
     </div>
   );
 };
 
-export default SignIn;
+export default SignUp;

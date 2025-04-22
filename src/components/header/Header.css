@@ -1,62 +1,179 @@
-/* src/components/Header.css */
+/* Header styles */
 .header {
-    background-color: #1a2526; /* Màu nền tối giống trong hình */
-    padding: 10px 20px;
+  background-color: #2C2C2C; /* Đen */
+  padding: 10px 20px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  height: 50px;
+}
+
+.header-container {
+  display: flex;
+  align-items: center; /* Đảm bảo các phần tử con được căn giữa theo chiều dọc */
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.logo {
+  flex: 1;
+  display: flex;
+  align-items: center; /* Căn giữa logo theo chiều dọc */
+}
+
+.logo img {
+  height: 40px;
+  filter: brightness(0) invert(1); /* Logo trắng */
+}
+
+.nav-menu {
+  flex: 2; /* Giúp menu căn giữa */
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Căn giữa các liên kết điều hướng theo chiều dọc */
+}
+
+.nav-menu ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu ul li {
+  display: inline;
+}
+
+.nav-menu ul li a {
+  color: #FFFFFF; /* Trắng */
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.nav-menu ul li a:hover {
+  color: #FFD700; /* Vàng kim khi hover */
+}
+
+.nav-menu ul li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: #FFD700; /* Vàng kim */
+  transition: width 0.3s ease;
+}
+
+.nav-menu ul li a:hover::after {
+  width: 100%;
+}
+
+.header-icons {
+  flex: 1;
+  display: flex;
+  align-items: center; /* Căn giữa các biểu tượng theo chiều dọc */
+  justify-content: flex-end;
+  gap: 27px;
+}
+
+.header-icons .icon {
+  height: 25px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  filter: brightness(0) invert(1); /* Biểu tượng trắng */
+}
+
+.header-icons .icon:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+  filter: brightness(0) invert(1) sepia(1) saturate(5) hue-rotate(200deg); /* Vàng nhạt khi hover */
+}
+
+/* Header Cart Container */
+.header-cart-container {
+  position: relative;
+  display: flex;
+  align-items: center; /* Đảm bảo giỏ hàng được căn giữa theo chiều dọc */
+}
+
+.cart-icon-wrapper {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center; /* Căn giữa biểu tượng giỏ hàng */
+}
+
+.cart-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: #ff0000;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 12px;
+}
+
+.cart-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #FFD700; /* Vàng kim */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  max-height: 400px;
+  overflow-y: auto;
+  z-index: 1001;
+  padding: 10px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.header-cart-container:hover .cart-dropdown {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .nav-menu {
+    flex: unset;
     width: 100%;
-    position: fixed; /* Đặt header cố định trên cùng */
-    top: 0;
-    left: 0;
-    z-index: 1000;
     display: flex;
     justify-content: center;
+    margin-top: 10px;
   }
-  
-  .header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    max-width: 1200px; /* Giới hạn chiều rộng tối đa */
-  }
-  
-  .logo img {
-    height: 40px; /* Điều chỉnh kích thước logo */
-  }
-  
+
   .nav-menu ul {
-    list-style: none;
-    display: flex;
-    gap: 30px; /* Khoảng cách giữa các menu item */
-    margin: 35 ;
-    padding: 50;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    margin-top: 15px;
   }
-  
-  .nav-menu ul li {
-    display: inline;
-  }
-  
-  .nav-menu ul li a {
-    color: #fff; /* Màu chữ trắng */
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: 600;
-    transition: color 0.3s ease;
-  }
-  
-  .nav-menu ul li a:hover {
-    color: rgb(88, 85, 85); /* Màu khi hover */
-  }
-  
+
   .header-icons {
-    display: flex;
-    gap: 27px; /* Khoảng cách giữa các icon */
+    margin-top: 15px;
   }
-  
-  .header-icons .icon {
-    height: 25px; /* Kích thước icon */
-    cursor: pointer;
+
+  .cart-dropdown {
+    right: -50px;
   }
-  
-  .header-icons .icon:hover {
-    opacity: 0.8; 
-  }
+}

@@ -7,14 +7,21 @@ import instagramIcon from '../../assets/images/Instagram_icon.png';
 import twitterIcon from '../../assets/images/X_icon.png';
 import linkedinIcon from '../../assets/images/Line_icon.png';
 
+// Import Toastify
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const Footer = () => {
   const [email, setEmail] = useState('');
 
   const handleSubscribe = (e) => {
     e.preventDefault();
-    // Logic xử lý đăng ký nhận thông báo (có thể gửi email đến server)
-    console.log('Subscribed with email:', email);
-    setEmail(''); // Reset input sau khi gửi
+    if (email) {
+      toast.success('Thank you for subscribing! You will receive notifications soon.');
+      setEmail('');
+    } else {
+      toast.error('Please enter a valid email address.');
+    }
   };
 
   return (
@@ -99,6 +106,9 @@ const Footer = () => {
       <div className="footer-bottom">
         <p>© Copyright 2025 | Design by HVN</p>
       </div>
+
+      {/* ToastContainer để hiển thị thông báo */}
+      <ToastContainer />
     </footer>
   );
 };

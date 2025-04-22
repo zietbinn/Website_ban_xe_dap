@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
+import { useCart } from "../../context/CartContext";
+import { toast } from 'react-toastify'; // Import toast
 import "./ProductCard.css";
 
-// Dữ liệu mẫu (nên đặt trong file riêng ở dự án thực tế)
 const productData = {
   1: { 
     name: 'Turbo Como 4x You', 
@@ -44,7 +45,6 @@ const productData = {
     sizes: ['XS', 'S', 'XL'],
     description: 'Xe đạp điện cao cấp với công nghệ Turbo Boost.'
   },
-  // Thêm các sản phẩm khác...
 };
 
 const ProductCard = () => {
@@ -53,8 +53,28 @@ const ProductCard = () => {
   const [selectedColor, setSelectedColor] = useState(null);
   const [selectedSize, setSelectedSize] = useState(null);
   const [mainImage, setMainImage] = useState(product?.images[0]);
+  const { addToCart } = useCart();
 
   if (!product) return <div className="not-found">Product not found</div>;
+
+  const handleAddToCart = () => {
+    if (!selectedColor || !selectedSize) {
+      toast.error('Please select color and size'); // Thông báo lỗi nếu chưa chọn màu hoặc kích thước
+      return;
+    }
+
+    const productToAdd = {
+      id: parseInt(id),
+      name: product.name,
+      price: product.price,
+      image: product.images[0],
+      selectedColor,
+      selectedSize,
+    };
+
+    addToCart(productToAdd);
+    toast.success(`Added to cart: ${product.name} (${selectedSize}, ${selectedColor})`); // Thông báo thành công
+  };
 
   return (
     <div className="product-card-container">
@@ -106,13 +126,7 @@ const ProductCard = () => {
           <button className="buy-btn">Buy Now</button>
           <button 
             className="cart-btn"
-            onClick={() => {
-              if (!selectedColor || !selectedSize) {
-                alert('Please select color and size');
-                return;
-              }
-              alert(`Added to cart: ${product.name} (${selectedSize}, ${selectedColor})`);
-            }}
+            onClick={handleAddToCart}
           >
             Add to Cart
           </button>

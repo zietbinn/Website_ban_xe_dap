@@ -1,56 +1,93 @@
-import React from 'react';
-import { Link } from 'react-router-dom'; // Sử dụng react-router-dom để điều hướng
-import './Header.css'; // File CSS để style header
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useCart } from '../../context/CartContext';
+import { useAuth } from '../../context/AuthContext';
+import './Header.css';
 
-// Import các assets (logo, icons)
-import logo from '../../assets/images/Logo_HVN.png'; // Đường dẫn đến logo của bạn
-import searchIcon from '../../assets/images/Search_icon.png'; // Đường dẫn đến icon search
-import cartIcon from '../../assets/images/Cart_icon.png'; // Đường dẫn đến icon cart
-import userIcon from '../../assets/images/User_icon.png'; // Đường dẫn đến icon user
+import logo from '../../assets/images/Logo_HVN.png';
+import searchIcon from '../../assets/images/Search_icon.png';
+import cartIcon from '../../assets/images/Cart_icon.png';
+import userIcon from '../../assets/images/User_icon.png';
 
 const Header = () => {
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const { cartItems, removeFromCart, updateQuantity } = useCart();
+  const { currentUser, logout } = useAuth();
+  const navigate = useNavigate();
+
+  const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
+
+  const handleUserIconClick = () => {
+    if (currentUser) {
+      navigate('/profile');
+    } else {
+      navigate('/signin');
+    }
+  };
+
   return (
     <header className="header">
       <div className="header-container">
-        {/* Logo */}
         <div className="logo">
           <Link to="/">
             <img src={logo} alt="HVN Logo" />
           </Link>
         </div>
 
-        {/* Navigation Menu */}
         <nav className="nav-menu">
           <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/products">Products</Link>
-            </li>
-            <li>
-              <Link to="/categories">Categories</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="/contact">Contact Us</Link>
-            </li>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/products">Products</Link></li>
+            <li><Link to="/categories">Categories</Link></li>
+            <li><Link to="/about">About</Link></li>
+            <li><Link to="/contact">Contact Us</Link></li>
           </ul>
         </nav>
 
-        {/* Icons (Search, Cart, User) */}
         <div className="header-icons">
           <Link to="/search" aria-label="Search">
             <img src={searchIcon} alt="Search" className="icon" />
           </Link>
-          <Link to="/products" aria-label="Products"> 
-            <img src={cartIcon} alt="Cart" className="icon" />
-          </Link>
-          <Link to="/signin" aria-label="Sign In">
+          <div className="header-cart-container">
+            <div className="cart-icon-wrapper" onClick={() => setIsCartOpen(!isCartOpen)}>
+              <img src={cartIcon} alt="Cart" className="icon" />
+              {totalItems > 0 && <span className="cart-badge">{totalItems}</span>}
+            </div>
+            {isCartOpen && (
+              <div className="cart-dropdown">
+                {cartItems.length > 0 ? (
+                  <>
+                    <h3>Your Cart</h3>
+                    <ul className="cart-items">
+                      {cartItems.map((item, index) => (
+                        <li key={index} className="cart-item">
+                          <img src={item.image} alt={item.name} className="cart-item-image" />
+                          <div className="cart-item-details">
+                            <p>{item.name}</p>
+                            <p>₫{item.price}</p>
+                            <p>Color: {item.selectedColor}</p>
+                            <p>Size: {item.selectedSize}</p>
+                            <div className="quantity-controls">
+                              <button onClick={() => updateQuantity(item.id, item.selectedColor, item.selectedSize, item.quantity - 1)}>-</button>
+                              <span>{item.quantity}</span>
+                              <button onClick={() => updateQuantity(item.id, item.selectedColor, item.selectedSize, item.quantity + 1)}>+</button>
+                            </div>
+                          </div>
+                          <button className="remove-item" onClick={() => removeFromCart(item.id, item.selectedColor, item.selectedSize)}>✕</button>
+                        </li>
+                      ))}
+                    </ul>
+                    <Link to="/cart" className="view-cart-button" onClick={() => setIsCartOpen(false)}>View Cart</Link>
+                  </>
+                ) : (
+                  <p>Your cart is empty.</p>
+                )}
+              </div>
+            )}
+          </div>
+          <div onClick={handleUserIconClick} style={{ cursor: 'pointer' }}>
             <img src={userIcon} alt="User" className="icon" />
-          </Link>
+          </div>
         </div>
       </div>
     </header>

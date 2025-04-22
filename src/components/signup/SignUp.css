@@ -1,0 +1,162 @@
+/* Sử dụng chung với SignIn.css, chỉ cần thêm một số style riêng nếu cần */
+.signup-container {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     min-height: 100vh;
+     background-color: #f5f5f5;
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   }
+   
+   .signup-card {
+     background-color: white;
+     padding: 2rem;
+     border-radius: 8px;
+     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+     width: 100%;
+     max-width: 400px;
+   }
+   
+   .signup-title {
+     text-align: center;
+     margin-bottom: 1.5rem;
+     color: #333;
+     font-size: 1.8rem;
+   }
+   
+   .signup-form {
+     margin-bottom: 1.5rem;
+   }
+   
+   .input-group {
+     margin-bottom: 1.2rem;
+   }
+   
+   .input-group label {
+     display: block;
+     margin-bottom: 0.5rem;
+     color: #555;
+     font-size: 0.9rem;
+   }
+   
+   .input-group input {
+     width: 100%;
+     padding: 0.8rem;
+     border: 1px solid #ddd;
+     border-radius: 4px;
+     font-size: 1rem;
+   }
+   
+   .input-group input:focus {
+     outline: none;
+     border-color: #888;
+   }
+   
+   .primary-btn {
+     width: 100%;
+     padding: 0.8rem;
+     background-color: #000;
+     color: white;
+     border: none;
+     border-radius: 4px;
+     font-size: 1rem;
+     cursor: pointer;
+     margin-top: 0.5rem;
+     transition: background-color 0.3s;
+   }
+   
+   .primary-btn:hover {
+     background-color: #333;
+   }
+   
+   .primary-btn:disabled {
+     background-color: #ccc;
+     cursor: not-allowed;
+   }
+   
+   .divider {
+     display: flex;
+     align-items: center;
+     margin: 1.5rem 0;
+     color: #888;
+     font-size: 0.9rem;
+   }
+   
+   .divider::before,
+   .divider::after {
+     content: "";
+     flex: 1;
+     border-bottom: 1px solid #ddd;
+   }
+   
+   .divider::before {
+     margin-right: 1rem;
+   }
+   
+   .divider::after {
+     margin-left: 1rem;
+   }
+   
+   .social-buttons {
+     display: flex;
+     flex-direction: column;
+     gap: 0.8rem;
+   }
+   
+   .social-btn {
+     width: 100%;
+     padding: 0.8rem;
+     border: 1px solid #ddd;
+     border-radius: 4px;
+     font-size: 1rem;
+     cursor: pointer;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     gap: 0.5rem;
+     background-color: white;
+     transition: background-color 0.3s;
+   }
+   
+   .social-btn:hover {
+     background-color: #f9f9f9;
+   }
+   
+   .social-btn:disabled {
+     opacity: 0.7;
+     cursor: not-allowed;
+   }
+   
+   .google {
+     color: #757575;
+   }
+   
+   .google:hover {
+     border-color: #757575;
+   }
+   
+   .facebook {
+     color: #1877f2;
+   }
+   
+   .facebook:hover {
+     border-color: #1877f2;
+   }
+   
+   .signup-footer {
+     text-align: center;
+     margin-top: 1.5rem;
+     color: #666;
+     font-size: 0.9rem;
+   }
+   
+   .signup-footer span {
+     color: #000;
+     text-decoration: none;
+     font-weight: 500;
+     cursor: pointer;
+   }
+   
+   .signup-footer span:hover {
+     text-decoration: underline;
+   }

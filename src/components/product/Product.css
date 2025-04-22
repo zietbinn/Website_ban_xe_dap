@@ -1,18 +1,22 @@
+/* Container cho sản phẩm */
 .product-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 60px;
 }
 
+/* Bố cục sản phẩm */
 .product-layout {
   display: flex;
   gap: 30px;
 }
 
+/* Sidebar */
 .sidebar {
   width: 250px;
 }
 
+/* Danh sách sản phẩm */
 .product-list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -20,26 +24,39 @@
   flex: 1;
 }
 
+/* Thẻ sản phẩm */
 .product-card {
-  border: 1px solid #eee;
+  border: 1px solid #70908B; /* Màu xanh bạc hà cho đường viền */
   padding: 15px;
   text-decoration: none;
-  color: inherit;
+  color: #1a2526; /* Màu chữ tối cho dễ đọc */
   display: block;
+  border-radius: 5px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
+/* Hiệu ứng khi hover vào sản phẩm */
+.product-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Thêm bóng mờ khi hover */
+  transform: scale(1.05); /* Tạo hiệu ứng phóng to nhẹ khi hover */
+}
+
+/* Ảnh sản phẩm */
 .product-image {
   width: 100%;
   height: 200px;
   object-fit: cover;
+  border-radius: 5px;
 }
 
+/* Tùy chọn màu sắc cho sản phẩm */
 .color-options {
   display: flex;
   gap: 10px;
   margin: 10px 0;
 }
 
+/* Chấm màu sắc */
 .color-dot {
   width: 20px;
   height: 20px;
@@ -47,21 +64,26 @@
   display: inline-block;
 }
 
+/* Phân trang */
 .pagination {
   margin-left: 500px;
   margin-top: 40px;
 }
 
+/* Nút phân trang */
 .page-button {
   margin: 3px;
   width: 50px;
-  transition: background-color 0.5s ease,color 0.5s ease;
-}
-
-.page-button:hover {
-  background-color: pink;
-  color: black;
+  padding: 10px;
   border-radius: 25px;
+  background-color: #6c7b7b; /* Màu sáng hơn cho nền nút */
+  color: white;
+  border: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
-/* Các style khác giữ nguyên như code gốc của bạn */
 
+/* Hiệu ứng hover cho nút phân trang */
+.page-button:hover {
+  background-color: #4a5c5e; /* Màu tối hơn khi hover */
+  color: #fff; /* Màu chữ trắng khi hover */
+}

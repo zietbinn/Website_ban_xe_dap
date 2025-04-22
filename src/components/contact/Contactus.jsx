@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { toast } from 'react-toastify'; // Import react-toastify
 import './ContactUs.css';
 
 const ContactUs = () => {
@@ -99,6 +100,7 @@ const ContactUs = () => {
     if (isValid) {
       // Xử lý gửi form (ví dụ: gửi dữ liệu đến server)
       console.log('Form submitted:', formData);
+      toast.success('Your message has been sent successfully!'); // Thông báo thành công
       // Reset form sau khi gửi thành công
       setFormData({
         firstName: '',
@@ -115,6 +117,7 @@ const ContactUs = () => {
         message: '',
       });
     } else {
+      toast.error('Please fill in all fields correctly!'); // Thông báo lỗi
       console.log('Form has errors');
     }
   };

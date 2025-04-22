@@ -1,138 +1,141 @@
-/* src/components/Footer.css */
+/* Footer styles */
 .footer {
-    background-color: #1a2526; 
-    color: #fff; 
-    padding: 40px 20px;
-    width: 100vw; /* Sử dụng 100vw để ép footer full width theo viewport */
-    margin: 0; 
-    position: relative; 
-    left: 0; 
-    box-sizing: border-box; /* Đảm bảo padding không làm tăng kích thước */
-  }
-  
-  .footer-container {
-    display: flex;
-    justify-content: space-evenly; /* Căn đều các cột */
-    max-width: 100%; 
-    margin: 0 auto;
-    flex-wrap: wrap; 
-    width: 100%; 
-    padding: 0 20px;
-    box-sizing: border-box;
-  }
-  
-  .footer-column {
-    flex: 1;
-    min-width: 200px; /* Đảm bảo cột không bị quá nhỏ */
-    margin: 10px;
-    max-width: 250px; /* Giới hạn chiều rộng tối đa của mỗi cột */
-  }
-  
-  .footer-column h3 {
-    font-size: 18px;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-  }
-  
-  .footer-column p {
-    font-size: 15px;
-    line-height: 1.6;
-  }
-  
-  .social-icons {
-    display: flex;
-    gap: 22px;
-    margin-top: 15px;
-  }
-  
-  .social-icon {
-    width: 25px;
-    height: 25px;
-    transition: opacity 0.3s ease;
-  }
-  
-  .social-icon:hover {
-    opacity: 0.8;
-  }
-  
-  .footer-column ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .footer-column ul li {
-    display: flex;
-    justify-content: space-between;
-    font-size: 14px;
-    margin-bottom: 8px;
-  }
-  
-  .footer-column ul li span {
-    text-align: right;
-  }
-  
-  .subscribe-form {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 15px;
-  }
-  
-  .subscribe-form input {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
-    flex: 1;
-  }
-  
-  .subscribe-form button {
-    padding: 8px 15px;
-    background-color: #2a3f40; /* Màu nút Send */
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .subscribe-form button:hover {
-    background-color: #3b5a5b;
-  }
-  
-  .footer-bottom {
-    text-align: center;
-    margin-top: 20px;
-    font-size: 18px;
-    border-top: 1px solid #333;
-    padding-top: 10px;
-    width: 100%; /* Đảm bảo phần copyright full width */
-  }
-  .footer-bottom p{
-    color: rgb(68, 180, 180);
-    }
+  background-color: #2C2C2C; /* Đen */
+  color: #fff;
+  padding: 40px 20px;
+  width: 100vw;
+  margin: 0;
+  position: relative;
+  left: 0;
+  box-sizing: border-box;
+}
 
-  /* Responsive: Điều chỉnh khi màn hình nhỏ */
-  @media (max-width: 768px) {
-    .footer-container {
-      flex-direction: column; /* Xếp cột theo chiều dọc trên màn hình nhỏ */
-      align-items: center; /* Căn giữa các cột */
-    }
-  
-    .footer-column {
-      max-width: 100%; /* Cho phép cột chiếm toàn bộ chiều rộng */
-      text-align: center; /* Căn giữa nội dung */
-    }
-  
-    .footer-column ul li {
-      justify-content: center; /* Căn giữa các mục trong danh sách */
-      gap: 10px; /* Khoảng cách giữa ngày và giờ */
-    }
-  
-    .footer-column ul li span {
-      text-align: center; /* Căn giữa giờ */
-    }
-  
-    .subscribe-form {
-      justify-content: center; /* Căn giữa form */
-    }
+.footer-container {
+  display: flex;
+  justify-content: space-evenly;
+  max-width: 100%;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 200px;
+  margin: 10px;
+  max-width: 250px;
+}
+
+.footer-column h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  color: #FFD700; /* Vàng kim */
+}
+
+.footer-column p {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.social-icons {
+  display: flex;
+  gap: 22px;
+  margin-top: 15px;
+}
+
+.social-icon {
+  width: 25px;
+  height: 25px;
+  transition: opacity 0.3s ease;
+}
+
+.social-icon:hover {
+  opacity: 0.8;
+  filter: brightness(0) invert(1) sepia(1) saturate(5) hue-rotate(200deg); /* Vàng nhạt khi hover */
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.footer-column ul li span {
+  text-align: right;
+}
+
+.subscribe-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.subscribe-form input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  flex: 1;
+}
+
+.subscribe-form button {
+  padding: 8px 15px;
+  background-color: #BDC3C7; /* Bạc */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.subscribe-form button:hover {
+  background-color: #95A5A6; /* Bạc đậm */
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 18px;
+  border-top: 1px solid #333;
+  padding-top: 10px;
+  width: 100%;
+}
+
+.footer-bottom p {
+  color: #FFD700; /* Vàng kim */
+}
+
+/* Responsive: Điều chỉnh khi màn hình nhỏ */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
   }
+
+  .footer-column {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .footer-column ul li {
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .footer-column ul li span {
+    text-align: center;
+  }
+
+  .subscribe-form {
+    justify-content: center;
+  }
+}

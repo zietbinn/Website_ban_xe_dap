@@ -1,163 +1,187 @@
+/* Font Import */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+/* Base Styles */
 .signin-container {
-     position: relative;
-     min-height: 100vh;
-     display: flex;
-     flex-direction: column;
-     justify-content: space-between;
-     background: linear-gradient(135deg, #1e1e2f 0%, #3b1e5a 100%); /* Gradient background */
-     background-image: url('https://via.placeholder.com/1200x800?text=Space+Background'); /* Placeholder for space background */
-     background-size: cover;
-     background-position: center;
-     color: white;
-     padding: 20px;
-   }
-   
-   /* Logo */
-   .logo {
-     position: absolute;
-     top: 20px;
-     left: 20px;
-   }
-   
-   .logo-text {
-     font-size: 24px;
-     font-weight: bold;
-     color: white;
-   }
-   
-   /* Sign In Form */
-   .signin-form {
-     position: absolute;
-     top: 50%;
-     right: 10%;
-     transform: translateY(-50%);
-     text-align: center;
-     max-width: 400px;
-     width: 100%;
-   }
-   
-   .signin-form h1 {
-     font-size: 36px;
-     margin-bottom: 10px;
-   }
-   
-   .signin-form p {
-     font-size: 16px;
-     margin-bottom: 20px;
-     color: #d3d3d3;
-   }
-   
-   .email-input {
-     width: 100%;
-     padding: 12px;
-     margin-bottom: 20px;
-     border: none;
-     border-radius: 25px;
-     background-color: #2a2a4a;
-     color: white;
-     font-size: 16px;
-   }
-   
-   .signup-button {
-     width: 100%;
-     padding: 12px;
-     border: none;
-     border-radius: 25px;
-     background: linear-gradient(90deg, #6f42c1, #00ddeb);
-     color: white;
-     font-size: 16px;
-     font-weight: bold;
-     cursor: pointer;
-     transition: background 0.3s;
-   }
-   
-   .signup-button:hover {
-     background: linear-gradient(90deg, #5a32a3, #00b7c3);
-   }
-   
-   /* Social Buttons */
-   .or-continue {
-     margin: 20px 0;
-     color: #d3d3d3;
-   }
-   
-   .social-buttons {
-     display: flex;
-     gap: 15px;
-     justify-content: center;
-   }
-   
-   .social-button {
-     display: flex;
-     align-items: center;
-     gap: 10px;
-     padding: 10px 20px;
-     border: none;
-     border-radius: 25px;
-     background-color: #2a2a4a;
-     color: white;
-     font-size: 16px;
-     cursor: pointer;
-     transition: background-color 0.3s;
-   }
-   
-   .social-button:hover {
-     background-color: #3a3a5a;
-   }
-   
-   .social-icon {
-     font-weight: bold;
-   }
-   
-   /* Adventure Text */
-   .adventure-text {
-     position: absolute;
-     bottom: 20px;
-     left: 20px;
-   }
-   
-   .adventure-text h2 {
-     font-size: 48px;
-     line-height: 1.2;
-     color: white;
-   }
-   
-   .adventure-text h2 span {
-     color: #6f42c1; /* Purple color for "ADVENTURE" */
-   }
-   
-   /* Terms Link */
-   .terms {
-     margin-top: 20px;
-     font-size: 14px;
-     color: #d3d3d3;
-   }
-   
-   .terms a {
-     color: #6f42c1;
-     text-decoration: none;
-   }
-   
-   .terms a:hover {
-     text-decoration: underline;
-   }
-   
-   /* Responsive Design */
-   @media (max-width: 768px) {
-     .signin-form {
-       position: static;
-       transform: none;
-       margin: 0 auto;
-       padding-top: 80px;
-     }
-   
-     .adventure-text {
-       position: static;
-       text-align: center;
-       margin-top: 20px;
-     }
-   
-     .adventure-text h2 {
-       font-size: 32px;
-     }
-   }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  font-family: 'Poppins', sans-serif;
+  padding: 20px;
+}
+
+.signin-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  width: 100%;
+  max-width: 450px;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.signin-title {
+  text-align: center;
+  color: #2d3748;
+  margin-bottom: 30px;
+  font-weight: 600;
+  font-size: 28px;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #4a5568;
+  font-weight: 500;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.3s;
+}
+
+.input-group input:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+  outline: none;
+}
+
+.primary-btn {
+  width: 100%;
+  padding: 14px;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 10px;
+}
+
+.primary-btn:hover {
+  background: #5a67d8;
+}
+
+.primary-btn:disabled {
+  background: #a0aec0;
+  cursor: not-allowed;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  margin: 25px 0;
+  color: #718096;
+}
+
+.divider::before, .divider::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.divider span {
+  padding: 0 15px;
+}
+
+.social-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: 1px solid #e2e8f0;
+  background: white;
+}
+
+.social-btn i {
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+.social-btn.google:hover {
+  background: #f8f9fa;
+  border-color: #d2d6dc;
+}
+
+.social-btn.facebook {
+  color: #1877f2;
+}
+
+.social-btn.facebook:hover {
+  background: #f0f4ff;
+}
+
+.social-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.signin-footer {
+  text-align: center;
+  margin-top: 25px;
+  color: #718096;
+}
+
+.signin-footer p {
+  margin: 8px 0;
+}
+
+.signin-footer span {
+  color: #667eea;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.signin-footer span:hover {
+  text-decoration: underline;
+}
+
+.forgot-password {
+  color: #667eea;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .signin-card {
+    padding: 30px 20px;
+  }
+  
+  .signin-title {
+    font-size: 24px;
+  }
+}

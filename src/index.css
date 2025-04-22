@@ -66,3 +66,20 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+/* Tùy chỉnh giao diện thông báo của react-toastify */
+.Toastify__toast--success {
+  background-color: #4caf50 !important; /* Màu nền xanh lá cho thông báo thành công */
+  color: white !important;
+  font-family: Arial, sans-serif;
+}
+
+.Toastify__toast--error {
+  background-color: #f44336 !important; /* Màu nền đỏ cho thông báo lỗi */
+  color: white !important;
+  font-family: Arial, sans-serif;
+}
+
+.Toastify__toast-body {
+  font-size: 19px;
+}
