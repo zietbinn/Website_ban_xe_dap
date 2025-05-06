@@ -36,11 +36,11 @@ const Header = () => {
 
         <nav className="nav-menu">
           <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/products">Products</Link></li>
-            <li><Link to="/categories">Categories</Link></li>
-            <li><Link to="/about">About</Link></li>
-            <li><Link to="/contact">Contact Us</Link></li>
+            <li><Link to="/">Trang Chủ</Link></li>
+            <li><Link to="/products">Sản Phẩm</Link></li>
+            <li><Link to="/categories">Thuê Xe</Link></li>
+            <li><Link to="/about">Bảo Dưỡng</Link></li>
+            <li><Link to="/contact">Liên Hệ</Link></li>
           </ul>
         </nav>
 

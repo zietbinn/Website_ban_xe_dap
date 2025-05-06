@@ -1,22 +1,22 @@
 import React from 'react';
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
-import ContactUs from './components/contact/ContactUs';
+import ContactUs from './pages/contact/Contactus';
 import SignIn from './components/signin/SignIn';
 import SignUp from './components/signup/SignUp'; 
-import Profile from './components/profile/Profile';
-import HomePage from './components/home/HomePage';
-import Product from './components/product/Product';
-import ProductCard from './components/product/ProductCard';
-import CartPage from './components/cart/CartPage';
-import CheckoutPage from './components/checkout/CheckoutPage'; 
+import Profile from './pages/profile/Profile';
+import HomePage from './pages/home/HomePage';
+import Product from './pages/product/Product';
+import ProductCard from './pages/product/ProductCard';
+import CartPage from './pages/cart/CartPage';
+import CheckoutPage from './pages/checkout/CheckoutPage'; 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { CartProvider } from './context/CartContext';
 import { AuthProvider } from './context/AuthContext';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ProtectedRoute from './components/ProtectedRoute';
-import NotFound from './components/error/NotFound'; // Trang 404
+import NotFound from './pages/error/NotFound'; 
 
 const App = () => {
   return (

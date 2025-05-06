@@ -1,0 +1,134 @@
+.profile-container {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     padding: 4rem 2rem;
+     min-height: 100vh;
+     background-color: #f8f9fa;
+   }
+   
+   .profile-card-grid {
+     display: grid;
+     grid-template-columns: 2fr 1fr;
+     gap: 2rem;
+     background: white;
+     border-radius: 12px;
+     box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+     padding: 2.5rem;
+     max-width: 900px;
+     width: 100%;
+   }
+   
+   .profile-avatar {
+     width: 100px;
+     height: 100px;
+     border-radius: 50%;
+     object-fit: cover;
+     margin-bottom: 1rem;
+     border: 3px solid #6f42c1;
+   }
+   
+   .profile-details {
+     display: flex;
+     flex-direction: column;
+   }
+   
+   .profile-details label {
+     font-weight: 500;
+     margin-top: 1rem;
+     margin-bottom: 0.5rem;
+     color: #333;
+   }
+   
+   .profile-details input {
+     padding: 0.75rem;
+     border: 1px solid #ccc;
+     border-radius: 8px;
+     font-size: 1rem;
+     background-color: #9f9898;
+   }
+   
+   .profile-details input:disabled {
+     background-color: #e9ecef;
+     color: #666;
+   }
+   
+   .profile-actions {
+     display: flex;
+     flex-direction: column;
+     justify-content: flex-start;
+     gap: 1rem;
+     margin-top: 1rem;
+   }
+   
+   .edit-button,
+   .save-button,
+   .logout-button,
+   .back-button {
+     padding: 0.9rem 1rem;
+     font-size: 1rem;
+     border-radius: 8px;
+     font-weight: 500;
+     cursor: pointer;
+     transition: all 0.3s ease;
+     border: none;
+   }
+   
+   .edit-button {
+     background-color: #007bff;
+     color: white;
+   }
+   
+   .edit-button:hover {
+     background-color: #0056b3;
+   }
+   
+   .save-button {
+     background-color: #28a745;
+     color: white;
+   }
+   
+   .save-button:hover {
+     background-color: #218838;
+   }
+   
+   .logout-button {
+     background-color: #dc3545;
+     color: white;
+   }
+   
+   .logout-button:hover {
+     background-color: #c82333;
+   }
+   
+   .back-button {
+     background-color: white;
+     color: #6f42c1;
+     border: 1px solid #6f42c1;
+   }
+   
+   .back-button:hover {
+     background-color: #f0e6ff;
+   }
+   
+   /* Responsive */
+   @media (max-width: 768px) {
+     .profile-card-grid {
+       grid-template-columns: 1fr;
+       padding: 1.5rem;
+     }
+   
+     .profile-actions {
+       flex-direction: row;
+       flex-wrap: wrap;
+       justify-content: center;
+     }
+   
+     .edit-button,
+     .save-button,
+     .logout-button,
+     .back-button {
+       width: 100%;
+     }
+   }
+   

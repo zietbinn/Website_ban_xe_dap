@@ -29,7 +29,7 @@ const Footer = () => {
       <div className="footer-container">
         {/* Cột 1: About Us */}
         <div className="footer-column">
-          <h3>About Us</h3>
+          <h3>Về chúng tôi</h3>
           <p>
             HVN is a store that sells the world's top-quality bike. <br />
             "Your satisfaction is our pleasure"
@@ -52,7 +52,7 @@ const Footer = () => {
 
         {/* Cột 2: Working Time */}
         <div className="footer-column">
-          <h3>Working Time</h3>
+          <h3>Thời gian làm việc</h3>
           <ul>
             <li>Monday <span>9h30 - 18h30</span></li>
             <li>Tuesday <span>9h30 - 18h30</span></li>
@@ -66,7 +66,7 @@ const Footer = () => {
 
         {/* Cột 3: Contact Us */}
         <div className="footer-column">
-          <h3>Contact Us</h3>
+          <h3>Liên hệ chúng tôi</h3>
           <p>
             Hà Nội branch <br />
             (+84) 1234-5678 <br />
@@ -86,7 +86,7 @@ const Footer = () => {
 
         {/* Cột 4: Subscribe Us */}
         <div className="footer-column">
-          <h3>Subscribe Us</h3>
+          <h3>Đăng ký nhận thông tin</h3>
           <form onSubmit={handleSubscribe} className="subscribe-form">
             <input
               type="email"
